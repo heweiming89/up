@@ -129,6 +129,12 @@
 			<artifactId>commons-dbcp2</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>javax.persistence</groupId>
+			<artifactId>persistence-api</artifactId>
+			<version>1.0.2</version>
+		</dependency>
+
 		<!-- jUnit -->
 		<dependency>
 			<groupId>junit</groupId>
@@ -290,6 +296,28 @@
 			<version>1.1.1</version>
 		</dependency>
 
+		<!-- Apache Shiro -->
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-core</artifactId>
+			<version>${shiro.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-web</artifactId>
+			<version>${shiro.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-ehcache</artifactId>
+			<version>${shiro.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-spring</artifactId>
+			<version>${shiro.version}</version>
+		</dependency>
+
 		<!-- <dependency> -->
 		<!-- <groupId>org.springframework.boot</groupId> -->
 		<!-- <artifactId>spring-boot-starter-groovy-templates</artifactId> -->
@@ -306,28 +334,6 @@
 		<!-- <dependency> -->
 		<!-- <groupId>org.quartz-scheduler</groupId> -->
 		<!-- <artifactId>quartz</artifactId> -->
-		<!-- </dependency> -->
-
-		<!-- Apache Shiro -->
-		<!-- <dependency> -->
-		<!-- <groupId>org.apache.shiro</groupId> -->
-		<!-- <artifactId>shiro-core</artifactId> -->
-		<!-- <version>${shiro.version}</version> -->
-		<!-- </dependency> -->
-		<!-- <dependency> -->
-		<!-- <groupId>org.apache.shiro</groupId> -->
-		<!-- <artifactId>shiro-web</artifactId> -->
-		<!-- <version>${shiro.version}</version> -->
-		<!-- </dependency> -->
-		<!-- <dependency> -->
-		<!-- <groupId>org.apache.shiro</groupId> -->
-		<!-- <artifactId>shiro-ehcache</artifactId> -->
-		<!-- <version>${shiro.version}</version> -->
-		<!-- </dependency> -->
-		<!-- <dependency> -->
-		<!-- <groupId>org.apache.shiro</groupId> -->
-		<!-- <artifactId>shiro-spring</artifactId> -->
-		<!-- <version>${shiro.version}</version> -->
 		<!-- </dependency> -->
 
 		<!-- Bean Validation (JSR-303) -->
@@ -364,6 +370,18 @@
 		<!-- <groupId>org.apache.poi</groupId> -->
 		<!-- <artifactId>poi-ooxml</artifactId> -->
 		<!-- </dependency> -->
+
+		<dependency>
+			<groupId>com.google.zxing</groupId>
+			<artifactId>core</artifactId>
+			<version>3.2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.zxing</groupId>
+			<artifactId>javase</artifactId>
+			<version>3.2.1</version>
+		</dependency>
+
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
