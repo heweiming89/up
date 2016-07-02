@@ -21,10 +21,11 @@ public class QRCodeUtil {
 		String format = "png";
 		Map<EncodeHintType, Object> hints = new HashMap<>();
 		hints.put(EncodeHintType.CHARACTER_SET, "UTF-8");
-		
-		try(ByteArrayOutputStream stream = new ByteArrayOutputStream()) {
-			BitMatrix matrix = new MultiFormatWriter().encode(contents,
-					BarcodeFormat.QR_CODE, width, height);
+
+		try (ByteArrayOutputStream stream = new ByteArrayOutputStream()) {
+			MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
+			BitMatrix matrix = multiFormatWriter.encode(contents, BarcodeFormat.QR_CODE,
+					width, height, hints);
 			MatrixToImageWriter.writeToStream(matrix, format, stream);
 			data = stream.toByteArray();
 		} catch (WriterException e) {

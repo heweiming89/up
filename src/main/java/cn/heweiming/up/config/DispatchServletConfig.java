@@ -1,8 +1,8 @@
 package cn.heweiming.up.config;
 
-import java.lang.invoke.MethodHandles;
+import javax.servlet.MultipartConfigElement;
+import javax.servlet.ServletRegistration.Dynamic;
 
-import org.springframework.boot.SpringApplication;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class DispatchServletConfig
@@ -14,6 +14,16 @@ public class DispatchServletConfig
 	// TomcatEmbeddedServletContainerFactory();
 	// return factory;
 	// }
+
+	@Override
+	protected void customizeRegistration(Dynamic registration) {
+		String location = "F:/MyProject/upload";
+		long maxFileSize = 2 * 1024 * 1024;
+		long maxRequestSize = 4 * 1024 * 1024;
+		int fileSizeThreshold = 0;
+		registration.setMultipartConfig(new MultipartConfigElement(location, maxFileSize,
+				maxRequestSize, fileSizeThreshold));
+	}
 
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
@@ -28,10 +38,6 @@ public class DispatchServletConfig
 	@Override
 	protected String[] getServletMappings() {
 		return new String[] { "/" };
-	}
-
-	public static void main(String[] args) {
-		SpringApplication.run(MethodHandles.lookup().lookupClass(), args);
 	}
 
 }

@@ -259,10 +259,10 @@
 		<!-- <artifactId>spring-boot-starter-data-jpa</artifactId> -->
 		<!-- </dependency> -->
 
-		<!-- <dependency> -->
-		<!-- <groupId>org.springframework.boot</groupId> -->
-		<!-- <artifactId>spring-boot-starter-redis</artifactId> -->
-		<!-- </dependency> -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-redis</artifactId>
+		</dependency>
 
 		<!-- <dependency> -->
 		<!-- <groupId>org.springframework.boot</groupId> -->
@@ -370,6 +370,12 @@
 		<!-- <groupId>org.apache.poi</groupId> -->
 		<!-- <artifactId>poi-ooxml</artifactId> -->
 		<!-- </dependency> -->
+
+		<!-- Commons IO -->
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+		</dependency>
 
 		<dependency>
 			<groupId>com.google.zxing</groupId>
