@@ -1,23 +1,21 @@
 package cn.heweiming.up.controller;
 
-import java.io.File;
-import java.io.IOException;
-
-import javax.servlet.http.Part;
-
-import org.apache.commons.io.IOUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.Part;
+import java.io.File;
+import java.io.IOException;
+
 @Controller
 @RequestMapping("/upload")
 public class UploadController {
 
 	@RequestMapping("01")
-	public String upload01(@RequestPart("doraemon") byte[] doraemon) {
+	public String upload01() {
 		// IOUtils.
 		return "home";
 	}
@@ -28,10 +26,7 @@ public class UploadController {
 		try {
 			doraemon.transferTo(
 					new File("test02/" + System.currentTimeMillis() + "-" + filename));
-		} catch (IllegalStateException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
+		} catch (IllegalStateException | IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -42,7 +37,6 @@ public class UploadController {
 	@RequestMapping("03")
 	public String upload03(@RequestPart("doraemon") Part doraemon) {
 		try {
-			String name = doraemon.getName();
 			String contentType = doraemon.getContentType();
 			System.out.println("contentType -> " + contentType);
 			System.out.println(doraemon.getSubmittedFileName());

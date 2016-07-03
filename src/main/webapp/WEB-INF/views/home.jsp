@@ -19,6 +19,11 @@
 		<input type="file" name="doraemon" id="" accept="image/png,image/jpeg,image/gif" /> <br />
 		<input type="submit" value="提交表单" />
 	</form>
+	<hr />
+	<form method="post">
+		<input type="file" name="doraemon" id="" accept="image/png,image/jpeg,image/gif" /> <br />
+		<input type="button" value="提交表单" />
+	</form>
 
 	<h1>Welcome Home</h1>
 	<img alt="" src="${pageContext.request.contextPath }/common/img/Doraemon.jpg">
