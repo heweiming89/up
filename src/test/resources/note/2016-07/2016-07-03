@@ -1,0 +1,22 @@
+2016年7月3日 20:13:46
+
+1、利用encodeURI()在javascript中对中文URL参数进行编码时，“测试”二字会被转换为“%E6%B5%8B%E8%AF%95”
+2、但是浏览器机制会认为“%”是一个转义字符，浏览器会把地址栏URL中的传递的已转换参数“%”与“%”之间的已转义字符进行处理传递到后台Action中。这样会造成与实际经过encodeURI()编码后的URL不符，因为浏览器误认为“%”是转义字符字符了，它并未将“%”认为是个普通字符。
+3、要使得通过encodeURI()转换后的URL被浏览器正常处理，必须在外层再用encodeURI()处理一次已被encodeURI()编码后的RUL。这此处理encodeURI()会将已编码后的URL中被浏览器解析为转义字符的“%”再次进行编码，转换为普通字符。
+4、正常处理后，前面javascript代码中②处代码为：
+window.location = encodeURI(encodeURI("sayHello?user.name=" + name));
+5、处理后的URL不在是通过一次 encodeURI()转换后的字符串”%E6%B5%8B%E8%AF%95“，而是经过上一步两层encodeURI()处理URL处理后的字符串”%25E6%B255%258B%25E8%AF%2595“，通过再次编码原有被浏览起解析为转义字符的”%“被再次编码，转换成了普通字符转”%25“。
+
+此时前端javascript代码对带有中文的URL编码已经完成，并通过URL传递参数的方式传递到后台Action等待处理，Action获取到正常转换切无乱码的参数为”%25E6%B255%258B%25E8%AF%2595“，此字符串对应的中文正是我们输入的”测试“二字。
+
+Action获取到这样的字符串无法进行处理，因为它并不是我们前端输入的源数据”测试“二字，而是进过两次encodeURI()编码后的字符串。于是我们需要利用后台的一个API对前端编码后的参数字符串进行解码，对应解码API是URLDecoder.decode(user.getName(),"UTF-8")。
+
+URLDecoder的decode(String str,String ecn)方法有两个参数，第一个参数为待解码的字符串，第二个参数为解码时的对应编码。我么在后台使用此API进行解码的代码为：
+URLDecoder.decode(user.getName(),"UTF-8");
+
+总结：
+此时我们完成了URL传入中文参数出现乱码的问题，总结步骤大致分为一下阶段：
+1、在javascript中利用encodeURI()两次嵌套对URL中的中文参数进行编码
+2、在后台获取到进过前端encodeURI()编码后的字符串，使用decode(String str,String ecn)方法进行解码
+
+经过以上步骤URL中的中文内容乱码问题成功解决！
