@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*#main_body::after {*/
+            /*content: "";*/
+            /*display: block;*/
+            /*padding-bottom: 20%;*/
+        /*}*/
+
+
+    </style>
+</head>
+<body id="body" style="margin: 0px">
+
+<div id="main_body" style="">
+    <span>4321424123</span>
+</div>
+<!--<img id="img" src="../../common/img/web_login_bgi.png" alt="fdsafs">-->
+
+</body>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"
+        integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script>
+    $(function () {
+        var mainBody = $("#main_body")[0];
+//        mainBody.style.background = 'url("../../common/img/web_login_bgi.png") no-repeat';
+//        mainBody.style.backgroundsize = document.body.clientWidth + "px auto";
+//        $("#main_body").css("width", document.body.clientWidth + "px !important");
+//        $("#main_body").css("height",(document.body.clientWidth / 16 * 9) * "px");
+
+        $("#main_body").css("background",'url("../../common/img/web_login_bgi.png") no-repeat');
+        $("#main_body").css("background-size",document.body.clientWidth + "px auto");
+
+//        mainBody.style.width = document.body.clientWidth + "px";
+        console.info(typeof(document.body.clientHeight));
+//        mainBody.style.height = (document.body.clientHeight / 16 * 9) * "px";
+//        mainBody.style.backgroundsize = document.body.clientWidth + "px auto";
+//        var img = document.getElementById("img");
+//        img.style.width = document.body.clientWidth + "px";
+//        console.info(typeof(window.screen.width));
+
+        console.info("document.body.clientWidth -> " + document.body.clientWidth);
+        console.info("document.body.clientHeight -> " + document.body.clientHeight);
+        console.info("document.body.offsetWidth -> " + document.body.offsetWidth);
+        console.info("document.body.offsetHeight -> " + document.body.offsetHeight);
+        console.info("document.body.scrollWidth -> " + document.body.scrollWidth);
+        console.info("document.body.scrollHeight -> " + document.body.scrollHeight);
+        console.info("document.body.scrollTop -> " + document.body.scrollTop);
+        console.info("document.body.scrollLeft -> " + document.body.scrollLeft);
+        console.info("window.screenTop -> " + window.screenTop);
+        console.info("window.screenLeft -> " + window.screenLeft);
+        console.info("window.screen.height -> " + window.screen.height);
+        console.info("window.screen.width -> " + window.screen.width);
+        console.info("window.screen.availHeight -> " + window.screen.availHeight);
+        console.info("window.screen.availWidth -> " + window.screen.availWidth);
+
+        console.info("window.innerWidth -> " + window.innerWidth);
+        console.info("window.innerHeight -> " + window.innerHeight);
+
+        console.info("$(window).height() -> " + $(window).height());
+        console.info("$(document).height() -> " + $(document).height());
+        console.info("$(document.body).height() -> " + $(document.body).height());
+
+        console.info("$(window).width() -> " + $(window).width());
+        console.info("$(document).width() -> " + $(document).width());
+        console.info("$(document.body).width() -> " + $(document.body).width());
+    });
+</script>
+
+</html>

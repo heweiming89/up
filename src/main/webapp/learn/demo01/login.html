@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        #main_form_div{
+            width: 350px;
+            height: auto;
+        }
+
+    </style>
+</head>
+<body>
+<div id="main_body">
+    <img id="main_img" src="../../common/img/web_login_bgi.png">
+    <div id="main_form_div" style="border: thin solid blue">
+        fdsafdsa
+
+
+    </div>
+
+</div>
+</body>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"
+        integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script>
+    $(function () {
+//       var mainBody = $("#main_body")[0];
+//        mainBody.style.backgroundImage = 'url("file:///F:/web_login_bgi.png")';
+//        mainBody.style.backgroundsize = "1000px auto";
+        var width = document.body.clientWidth;
+        var height = width / 16 * 9;
+
+        $("#main_img").css("width", width + "px");
+        $("#main_form_div").css("position", "relative");
+        $("#main_form_div").css("left", (width / 2 - 165) + "px");
+        $("#main_form_div").css("top", "-" + (height / 2 + 100) + "px");
+
+        console.info($("#main_form_div").css("height"));
+
+
+
+
+    });
+
+
+</script>
+</html>

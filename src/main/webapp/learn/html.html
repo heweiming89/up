@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<progress id="myprogress" value="10" max="100" ></progress>
+<p>
+    <button type="button" value="30">30%</button>
+    <button type="button" value="60">60%</button>
+    <button type="button" value="90">90%</button>
+</p>
+<script>
+    var btns = document.getElementsByTagName("button");
+    var progress = document.getElementById("myprogress");
+    console.info(btns.length);
+    var value = 0;
+    var proInt =  window.setInterval(function(){
+        value++;
+        console.info(value);
+        if(value>= 100){
+            window.clearInterval(proInt);
+        }
+        progress.value = value;
+    },50);
+
+
+    for (var i = 0, len = btns.length; i < len; i++) {
+        btns[i].onclick = function (e) {
+            progress.value = e.target.value;
+        }
+    }
+
+</script>
+</body>
+</html>
