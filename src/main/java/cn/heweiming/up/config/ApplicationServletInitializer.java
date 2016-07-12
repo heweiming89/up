@@ -7,8 +7,6 @@ import javax.servlet.ServletException;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.filter.CharacterEncodingFilter;
 
-import cn.heweiming.up.servlet.RainServlet;
-
 public class ApplicationServletInitializer implements WebApplicationInitializer {
 
 	@Override

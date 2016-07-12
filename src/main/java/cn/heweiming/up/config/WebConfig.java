@@ -35,9 +35,6 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 	public MultipartResolver multipartResolver() {
 		// StandardServletMultipartResolver resolver = new
 		// StandardServletMultipartResolver();
-		
-		
-		
 		return new StandardServletMultipartResolver();
 	}
 

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #num {
+            display: none;
+        }
+
+        /*:active + span {*/
+            /*border: thin solid blue;*/
+            /*color: red;*/
+        /*}*/
+
+        #numInput:focus + span, #numInput:empty + span {
+            display: inline !important;
+        }
+
+        :checked + span {
+            border: thin solid chartreuse;
+            color: darkmagenta;
+        }
+
+        :invalid + span {
+            display: inline;
+        }
+
+        .no_display {
+            display: none;
+        }
+
+
+    </style>
+</head>
+<body>
+<form>
+    <input id="email" required type="text" pattern="^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$"
+           name="email"><span class="no_display"> 邮箱不能为空或邮箱格式错误</span>
+    <br/>
+    <input id="numInput" type="number" name="num"/><span id="num"> number </span>
+    <br/>
+    <input type="checkbox" name="box"/><span> check </span>
+</form>
+
+</body>
+</html>
