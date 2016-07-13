@@ -48,7 +48,6 @@ public class RootConfig {
 		dataSource.setInitialSize(10);
 		dataSource.setMaxIdle(5);
 		return dataSource;
-
 	}
 
 

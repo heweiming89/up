@@ -23,6 +23,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 		resolver.setSuffix(".jsp");
 		resolver.setExposeContextBeansAsAttributes(Boolean.TRUE);
 		return resolver;
+		
 	}
 
 	@Override
@@ -31,7 +32,8 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 		configurer.enable(); // 配置静态资源的处理
 	}
 
-	@Bean
+	
+	@Bean /* 文件上传配置 */
 	public MultipartResolver multipartResolver() {
 		// StandardServletMultipartResolver resolver = new
 		// StandardServletMultipartResolver();

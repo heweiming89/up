@@ -11,6 +11,7 @@ public class ApplicationServletInitializer implements WebApplicationInitializer 
 
 	@Override
 	public void onStartup(ServletContext servletContext) throws ServletException {
+		
 		Dynamic characterEncodingFilter = servletContext
 				.addFilter("characterEncodingFilter", CharacterEncodingFilter.class);
 		characterEncodingFilter.setInitParameter("encoding", "UTF-8");

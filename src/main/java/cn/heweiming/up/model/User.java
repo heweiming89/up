@@ -2,8 +2,6 @@ package cn.heweiming.up.model;
 
 import java.util.Date;
 
-import com.alibaba.fastjson.annotation.JSONField;
-
 public class User {
 
 	private Integer id;

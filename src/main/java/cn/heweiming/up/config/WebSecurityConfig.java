@@ -1,6 +1,6 @@
 package cn.heweiming.up.config;
 
-public class SecurityConfig {
+public class WebSecurityConfig {
 
 	
 	

@@ -3,17 +3,18 @@ package cn.heweiming.up.config;
 import javax.servlet.MultipartConfigElement;
 import javax.servlet.ServletRegistration.Dynamic;
 
+import org.springframework.boot.context.embedded.EmbeddedServletContainerFactory;
+import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainerFactory;
+import org.springframework.context.annotation.Bean;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-public class DispatchServletConfig
-		extends AbstractAnnotationConfigDispatcherServletInitializer {
+public class DispatchServletConfig extends AbstractAnnotationConfigDispatcherServletInitializer {
 
-	// @Bean
-	// public EmbeddedServletContainerFactory servletContainer() {
-	// TomcatEmbeddedServletContainerFactory factory = new
-	// TomcatEmbeddedServletContainerFactory();
-	// return factory;
-	// }
+	@Bean
+	public EmbeddedServletContainerFactory servletContainer() {
+		TomcatEmbeddedServletContainerFactory factory = new TomcatEmbeddedServletContainerFactory();
+		return factory;
+	}
 
 	@Override
 	protected void customizeRegistration(Dynamic registration) {
@@ -21,12 +22,13 @@ public class DispatchServletConfig
 		long maxFileSize = 2 * 1024 * 1024;
 		long maxRequestSize = 4 * 1024 * 1024;
 		int fileSizeThreshold = 0;
-		registration.setMultipartConfig(new MultipartConfigElement(location, maxFileSize,
-				maxRequestSize, fileSizeThreshold));
+		registration.setMultipartConfig(
+				new MultipartConfigElement(location, maxFileSize, maxRequestSize, fileSizeThreshold));
 	}
 
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
+
 		return new Class<?>[] { RootConfig.class };
 	}
 
