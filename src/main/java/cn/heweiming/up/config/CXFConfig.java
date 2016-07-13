@@ -1,6 +1,6 @@
 package cn.heweiming.up.config;
 
-public class WebServiceConfig {
+public class CXFConfig {
 
 //	private Bus bus;
 	

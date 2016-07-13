@@ -6,22 +6,29 @@ import javax.servlet.ServletException;
 
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.filter.CharacterEncodingFilter;
+import org.springframework.web.filter.HiddenHttpMethodFilter;
 
 public class ApplicationServletInitializer implements WebApplicationInitializer {
 
-	@Override
-	public void onStartup(ServletContext servletContext) throws ServletException {
-		
-		Dynamic characterEncodingFilter = servletContext
-				.addFilter("characterEncodingFilter", CharacterEncodingFilter.class);
-		characterEncodingFilter.setInitParameter("encoding", "UTF-8");
-		characterEncodingFilter.setInitParameter("forceEncoding", "true");
-		characterEncodingFilter.addMappingForUrlPatterns(null, false, "/*");
+    @Override
+    public void onStartup(ServletContext servletContext) throws ServletException {
 
-		// javax.servlet.ServletRegistration.Dynamic rainServlet =
-		// servletContext.addServlet("rainServlet", RainServlet.class);
-		// rainServlet.addMapping("/rain");
+        // 中文乱码
+        Dynamic characterEncodingFilter = servletContext
+                .addFilter("characterEncodingFilter", CharacterEncodingFilter.class);
+        characterEncodingFilter.setInitParameter("encoding", "UTF-8");
+        characterEncodingFilter.setInitParameter("forceEncoding", "true");
+        characterEncodingFilter.addMappingForUrlPatterns(null, false, "/*");
 
-	}
+        // REST
+        Dynamic hiddenHttpMethodFilter = servletContext
+                .addFilter("hiddenHttpMethodFilter", HiddenHttpMethodFilter.class);
+        hiddenHttpMethodFilter.addMappingForUrlPatterns(null, false, "/*");
+        
+        // javax.servlet.ServletRegistration.Dynamic rainServlet =
+        // servletContext.addServlet("rainServlet", RainServlet.class);
+        // rainServlet.addMapping("/rain");
+
+    }
 
 }
