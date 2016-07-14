@@ -1,6 +1,6 @@
 package cn.heweiming.up.config;
 
-public class ShiroConfig {
+public class ShiroContextConfig {
 
 	
 	

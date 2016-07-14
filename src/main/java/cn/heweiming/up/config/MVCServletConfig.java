@@ -14,7 +14,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @Configuration
 @EnableWebMvc // 启用 Spring MVC
 @ComponentScan("cn.heweiming.up.controller")
-public class WebConfig extends WebMvcConfigurerAdapter {
+public class MVCServletConfig extends WebMvcConfigurerAdapter {
 
 	@Bean
 	public ViewResolver viewResolver() {

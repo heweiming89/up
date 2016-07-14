@@ -1,6 +1,6 @@
 package cn.heweiming.up.config;
 
-public class CXFConfig {
+public class CXFContextConfig {
 
 //	private Bus bus;
 	

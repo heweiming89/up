@@ -1,5 +1,8 @@
 package cn.heweiming.up.common;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -12,6 +15,13 @@ public class Person {
 	public Person() {
 		System.out.println("Person.Person()");
 	}
+	
+	@PostConstruct
+	public void init(){
+		System.out.println("实例化后执行这个初始化方法");
+	}
+	
+//	@PreDestroy
 	
 	@Value(value = "曾阿牛")
 	private String name;

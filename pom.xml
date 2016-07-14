@@ -71,7 +71,8 @@
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-releasetrain</artifactId>
-				<version>Hopper-SR2</version>
+				<!-- <version>Hopper-SR2</version> -->
+				<version>Fowler-SR2</version>
 				<scope>import</scope>
 				<type>pom</type>
 			</dependency>
@@ -137,11 +138,11 @@
 			<artifactId>commons-dbcp2</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>javax.persistence</groupId>
-			<artifactId>persistence-api</artifactId>
-			<version>1.0.2</version>
-		</dependency>
+		<!-- <dependency> -->
+		<!-- <groupId>javax.persistence</groupId> -->
+		<!-- <artifactId>persistence-api</artifactId> -->
+		<!-- <version>1.0.2</version> -->
+		<!-- </dependency> -->
 
 		<!-- jUnit -->
 		<dependency>
@@ -356,10 +357,10 @@
 		</dependency>
 
 		<!-- Bean Validation (JSR-303) -->
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-validator</artifactId>
-		</dependency>
+		<!-- <dependency> -->
+		<!-- <groupId>org.hibernate</groupId> -->
+		<!-- <artifactId>hibernate-validator</artifactId> -->
+		<!-- </dependency> -->
 
 		<!-- Apache CXF -->
 		<!-- <dependency> -->

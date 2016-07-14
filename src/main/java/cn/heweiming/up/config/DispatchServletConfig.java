@@ -10,11 +10,12 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
 
 public class DispatchServletConfig extends AbstractAnnotationConfigDispatcherServletInitializer {
 
-	@Bean
-	public EmbeddedServletContainerFactory servletContainer() {
-		TomcatEmbeddedServletContainerFactory factory = new TomcatEmbeddedServletContainerFactory();
-		return factory;
-	}
+	// @Bean
+	// public EmbeddedServletContainerFactory servletContainer() {
+	// TomcatEmbeddedServletContainerFactory factory = new
+	// TomcatEmbeddedServletContainerFactory();
+	// return factory;
+	// }
 
 	@Override
 	protected void customizeRegistration(Dynamic registration) {
@@ -28,13 +29,12 @@ public class DispatchServletConfig extends AbstractAnnotationConfigDispatcherSer
 
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
-
-		return new Class<?>[] { RootConfig.class };
+		return new Class<?>[] { SpringContextConfig.class };
 	}
 
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
-		return new Class<?>[] { WebConfig.class };
+		return new Class<?>[] { MVCServletConfig.class };
 	}
 
 	@Override

@@ -3,7 +3,6 @@ package cn.heweiming.up.config;
 import javax.sql.DataSource;
 
 import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.shiro.crypto.hash.format.Shiro1CryptFormat;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +16,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.TransactionManagementConfigurer;
 
 @Configuration
-@EnableTransactionManagement
+@EnableTransactionManagement // 启注解事务管理，等同于xml配置方式的 <tx:annotation-driven />
 public class MyBatisConfig implements TransactionManagementConfigurer {
 
 	@Autowired
@@ -29,8 +28,7 @@ public class MyBatisConfig implements TransactionManagementConfigurer {
 		factoryBean.setDataSource(dataSource);
 		ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
 		factoryBean.setMapperLocations(resolver.getResources("classpath:mapper/*.xml"));
-		factoryBean
-				.setConfigLocation(resolver.getResource("classpath:mybatis-config.xml"));
+		factoryBean.setConfigLocation(resolver.getResource("classpath:mybatis-config.xml"));
 		return factoryBean.getObject();
 	}
 
@@ -39,9 +37,16 @@ public class MyBatisConfig implements TransactionManagementConfigurer {
 		return new SqlSessionTemplate(sqlSessionFactory);
 	}
 
+	@Bean(name = "transactionManager")
 	@Override
 	public PlatformTransactionManager annotationDrivenTransactionManager() {
 		return new DataSourceTransactionManager(dataSource);
 	}
+
+	// @Bean
+	// public PlatformTransactionManager transactionManager(DataSource
+	// dataSource) {
+	// return new DataSourceTransactionManager(dataSource);
+	// }
 
 }
