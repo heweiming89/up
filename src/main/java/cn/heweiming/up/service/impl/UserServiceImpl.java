@@ -39,8 +39,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public int updateByPrimaryKey(User record) {
-		// TODO Auto-generated method stub
-		return 0;
+		return userMapper.updateByPrimaryKey(record);
 	}
 
 }

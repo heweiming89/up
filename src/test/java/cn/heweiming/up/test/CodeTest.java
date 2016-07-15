@@ -1,5 +1,9 @@
 package cn.heweiming.up.test;
 
+import org.springframework.transaction.annotation.Propagation;
+
+import cn.heweiming.up.config.ShiroConfig;
+
 /**
  * Created by heweiming on 2016/7/4.
  */
