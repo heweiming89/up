@@ -51,7 +51,7 @@ public class DemoController01 {
     public byte[] demo04() {
         byte[] data = null;
         try (InputStream in = this.getClass().getClassLoader()
-                .getResourceAsStream("/img/Doraemon.jpg")) {
+                .getResourceAsStream("img/Doraemon.jpg")) {
             data = new byte[in.available()];
             int read = in.read(data);
         } catch (IOException e) {

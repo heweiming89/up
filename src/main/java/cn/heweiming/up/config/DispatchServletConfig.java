@@ -3,8 +3,15 @@ package cn.heweiming.up.config;
 import javax.servlet.MultipartConfigElement;
 import javax.servlet.ServletRegistration.Dynamic;
 
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
+@Configuration
+@ComponentScan
+@EnableAutoConfiguration
 public class DispatchServletConfig extends AbstractAnnotationConfigDispatcherServletInitializer {
 
 	// @Bean
@@ -37,6 +44,10 @@ public class DispatchServletConfig extends AbstractAnnotationConfigDispatcherSer
 	@Override
 	protected String[] getServletMappings() {
 		return new String[] { "/" };
+	}
+
+	public static void main(String[] args) {
+		SpringApplication.run(DispatchServletConfig.class, args);
 	}
 
 }

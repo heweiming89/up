@@ -15,14 +15,14 @@ public class Person {
 	public Person() {
 		System.out.println("Person.Person()");
 	}
-	
-	@PostConstruct
-	public void init(){
+
+	@PostConstruct // 在构造函数执行完之后执行
+	public void init() {
 		System.out.println("实例化后执行这个初始化方法");
 	}
-	
-//	@PreDestroy
-	
+
+	// @PreDestroy // 在Bean 销毁之前执行
+
 	@Value(value = "曾阿牛")
 	private String name;
 	@Value(value = "22")
@@ -56,7 +56,6 @@ public class Person {
 
 	@Override
 	public String toString() {
-		return "Person{" + "age=" + age + ", name='" + name + '\'' + ", gender=" + gender
-				+ '}';
+		return "Person{" + "age=" + age + ", name='" + name + '\'' + ", gender=" + gender + '}';
 	}
 }

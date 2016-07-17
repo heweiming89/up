@@ -6,10 +6,14 @@ import javax.sql.DataSource;
 
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ComponentScan.Filter;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.FilterType;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
@@ -22,6 +26,7 @@ import cn.heweiming.up.model.User;
 @ComponentScan(basePackages = { "cn.heweiming.up" }, excludeFilters = {
 		@Filter(type = FilterType.ANNOTATION, value = EnableWebMvc.class) })
 // @EnableTransactionManagement // 启注解事务管理，等同于xml配置方式的 <tx:annotation-driven />
+// @EnableAspectJAutoProxy
 public class SpringContextConfig {
 
 	@Autowired
@@ -48,7 +53,14 @@ public class SpringContextConfig {
 		dataSource.setPassword("");
 		dataSource.setInitialSize(10);
 		dataSource.setMaxIdle(5);
-		return dataSource;
+		System.err.println("===================");
+		DataSource build = DataSourceBuilder.create()//
+				.driverClassName(env.getProperty("jdbc.driver"))//
+				.url(env.getProperty("jdbc.url"))//
+				.username(env.getProperty("jdbc.username"))//
+				.password("")//
+				.build();
+		return build;
 	}
 
 	// @Bean(name = "sqlSessionFactory")

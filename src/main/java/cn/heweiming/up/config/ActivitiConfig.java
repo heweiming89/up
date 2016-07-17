@@ -14,12 +14,13 @@ import org.activiti.engine.TaskService;
 import org.activiti.spring.ProcessEngineFactoryBean;
 import org.activiti.spring.SpringProcessEngineConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.PlatformTransactionManager;
 
 @Configuration
-// @AutoConfigureAfter(MyBatisConfig.class)
+@AutoConfigureAfter(MyBatisConfig.class)
 public class ActivitiConfig {
 
 	@Autowired
@@ -52,7 +53,7 @@ public class ActivitiConfig {
 		return processEngineFactoryBean.getObject();
 	}
 
-	@Bean // 管理流程定义
+	@Bean // 管理流程定义 提供了管理和控制发布 包和流程定义的操作
 	public RepositoryService repositoryService(ProcessEngine processEngine) {
 		return processEngine.getRepositoryService();
 	}
