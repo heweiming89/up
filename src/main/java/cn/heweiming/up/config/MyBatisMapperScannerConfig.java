@@ -6,8 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-// TODO 注意，由于MapperScannerConfigurer执行的比较早，所以必须有下面的注解
-@AutoConfigureAfter(MyBatisConfig.class)
+@AutoConfigureAfter(MyBatisConfig.class) // 注意，由于MapperScannerConfigurer执行的比较早，所以必须有下面的注解
 public class MyBatisMapperScannerConfig {
 
 	@Bean

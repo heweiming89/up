@@ -1,0 +1,9 @@
+server:
+  port: 9090
+  context-path: /up
+spring:
+  profiles:
+    active: dev
+
+logging:
+  file: F:/mylog/log.log

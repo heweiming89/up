@@ -8,9 +8,9 @@ import javax.inject.Inject;
 import org.activiti.engine.ProcessEngine;
 import org.activiti.engine.RepositoryService;
 import org.activiti.engine.repository.Deployment;
-import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -19,10 +19,12 @@ import com.alibaba.fastjson.JSON;
 import cn.heweiming.up.common.Person;
 import cn.heweiming.up.config.SpringContextConfig;
 import cn.heweiming.up.model.User;
+import cn.heweiming.up.service.AsyncTaskService;
 import cn.heweiming.up.service.UserService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = { SpringContextConfig.class })
+@ActiveProfiles("dev")
 public class WebApplicationTest {
 
 	@Inject
@@ -40,11 +42,13 @@ public class WebApplicationTest {
 	@Inject
 	private UserService userService;
 
+	@Inject
+	private AsyncTaskService asyncTaskService;
+
 	@Test
 	public void testContext() {
 		System.err.println(JSON.toJSONString(user));
 		System.err.println(processEngine);
-
 	}
 
 	@Test
@@ -80,6 +84,14 @@ public class WebApplicationTest {
 		System.out.println(deployment.getId()); // 10001
 		System.out.println(deployment.getName());// helloWorld
 		System.out.println(deployment.getDeploymentTime());//
+	}
+
+	@Test
+	public void testAsync() {
+		for (int i = 0; i < 20; i++) {
+			asyncTaskService.executeAsyncTask1();
+			asyncTaskService.executeAsyncTask2();
+		}
 	}
 
 }

@@ -8,6 +8,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.alibaba.fastjson.JSON;
+
+import cn.heweiming.up.model.User;
+
 @Controller
 public class HomeController {
 	
@@ -19,11 +23,14 @@ public class HomeController {
 	DataSource dataSource;
 	
 	@Autowired
+	User user;
+	
+	@Autowired
 	ProcessEngine processEngine;
 	
 	@RequestMapping(value="/",method=RequestMethod.GET)
 	public String home(){
-		System.err.println("test1122");
+		System.err.println(JSON.toJSONString(user));
 		System.err.println(dataSource);
 		System.err.println(processEngine);
 		return "home";
